@@ -1,0 +1,22 @@
+{
+  "name": "command-line-marketplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "customer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greysongy/command-line-marketplace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greysongy/command-line-marketplace/issues"
+  },
+  "homepage": "https://github.com/greysongy/command-line-marketplace#readme"
+}
+
+
