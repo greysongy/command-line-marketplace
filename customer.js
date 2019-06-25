@@ -2,6 +2,7 @@
 
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table2");
 var items;
 
 var connection = mysql.createConnection({
@@ -25,15 +26,20 @@ function displayItems() {
         if (err) throw err;
         // console.log("response");
         // console.log(res);
-        console.log("Name:      Department:          Price:            Quantity:");
+        var table = new Table();
+        table.push(["Name", "Department", "Price", "Quantity"]);
+        // console.log("Name:      Department:          Price:            Quantity:");
         for(var i = 0; i < res.length; i++) {
-            console.log(res[i].product_name + " " + res[i].department_name + " " + res[i].price + " " + res[i].stock_quantity);
+            // console.log(res[i].product_name + " " + res[i].department_name + " " + res[i].price + " " + res[i].stock_quantity);
+            table.push([res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]);
         }
         items = res;
+        console.log(table.toString());
         promptUserPurchase();
     })
 }
 function promptUserPurchase() {
+    //may want to move displayItems here so they show iteratively
     inquirer
         .prompt([
             {
@@ -62,7 +68,7 @@ function promptUserPurchase() {
                     // console.log(response.id);
                     // console.log("Item ID")
                     if(parseInt(response.id) === items[i].id) {
-                        console.log("This check was met");
+                        // console.log("This check was met");
                         currentItem = items[i];
                     }
                 }
@@ -86,6 +92,10 @@ function promptUserPurchase() {
                         console.log("Your purchase went through! You bought " + response.quantity + " unit(s) of " + currentItem.product_name + " for a total of $" + (parseInt(response.quantity) * currentItem.price) + ".");
                         promptUserPurchase();
                     })
+                }
+                else {
+                    console.log("Slow down there! You requested " + response.quantity +  " item(s), but we only have " + currentItem.stock_quantity + " in stock. Please go back and purchase a valid quantity :)");
+                    promptUserPurchase();
                 }
             }
         })
