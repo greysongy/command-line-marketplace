@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS market_db;
+
 CREATE DATABASE market_db;
 
 USE market_db;
@@ -9,16 +11,16 @@ CREATE TABLE inventory (
     price FLOAT, 
     stock_quantity INT, 
     PRIMARY KEY(id)
-)
+);
 
 INSERT INTO inventory (product_name, department_name, price, stock_quantity) 
-VALUES ("Test1", "D1", 1, 10), 
-    ("Test2", "D2", 2, 20), 
-    ("Test3", "D3", 3, 30), 
-    ("Test4", "D4", 4, 40), 
-    ("Test5", "D5", 5, 50), 
-    ("Test6", "D6", 6, 60), 
-    ("Test7", "D7", 7, 70), 
-    ("Test8", "D8", 8, 80), 
-    ("Test9", "D9", 9, 90), 
-    ("Test10", "D10", 10, 100);
+VALUES ("Amazon Echo1", "Tech", 24.99, 3), 
+    ("Instant Pot Pressure Cooker", "Kitchen", 59.00, 20), 
+    ("Air Vent Magnetic Car Mount", "Entertainment", 7.48, 42), 
+    ("Fire HD Tablet", "Tech", 79.99, 55), 
+    ("32 GB Memory Card", "Tech", 12.91, 11), 
+    ("Wireless Headphones with App Control", "Entertainment", 36.99, 2), 
+    ("Robotic Vaccum Cleaner", "Home", 139.95, 70), 
+    ("Bluetooth Soundbuds", "Entertainment", 25.99, 43), 
+    ("Kindle Paperwhite", "Tech", 89.99, 96), 
+    ("Fire TV Stick", "Tech", 39.99, 120);

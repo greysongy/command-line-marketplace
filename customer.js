@@ -27,11 +27,11 @@ function displayItems() {
         // console.log("response");
         // console.log(res);
         var table = new Table();
-        table.push(["Name", "Department", "Price", "Quantity"]);
+        table.push(["id", "Name", "Department", "Price", "Quantity"]);
         // console.log("Name:      Department:          Price:            Quantity:");
         for(var i = 0; i < res.length; i++) {
             // console.log(res[i].product_name + " " + res[i].department_name + " " + res[i].price + " " + res[i].stock_quantity);
-            table.push([res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]);
+            table.push([res[i].id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]);
         }
         items = res;
         console.log(table.toString());
